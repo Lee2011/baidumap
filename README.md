@@ -3,6 +3,7 @@ baidumap
 
 A ruby CLI tool for baidu map service API.
 
+```bash
 Usage:
 
   baidumap <subcommand> [options]
@@ -64,15 +65,6 @@ Subcommands:
             --uid UID             poi的uid
         -o, --output OUTPUT       输出格式为json或者xml
 
-
-
-
-
-
-
-
-
-
-
+```
 
 [Web服务API](http://developer.baidu.com/map/index.php?title=webapi)
