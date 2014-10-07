@@ -8,7 +8,7 @@ module Baidumap
         def init_with_program(prog)
           prog.command(:locationip) do |c|
             c.syntax      'locationip [options]'
-            c.description '根据IP返回对应位置信息的服务接口'
+            c.description '根据IP返回对应位置信息'
 
             add_build_options(c)
 
@@ -26,9 +26,9 @@ module Baidumap
         # Call the API
         def process(options)
           Baidumap.logger.log_level = :error if options['quiet']
-
+          puts "该功能正在开发中，敬请期待 :)"
         # options = configuration_from_options(options)
-          setup()
+        # setup()
 
         end
 

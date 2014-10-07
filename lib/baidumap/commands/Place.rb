@@ -8,7 +8,7 @@ module Baidumap
         def init_with_program(prog)
           prog.command(:place) do |c|
             c.syntax      'place <subcommand> [options]'
-            c.description 'place API 提供区域检索POI服务、POI详情服务与团购信息检索服务、商家团购详情查询'
+            c.description '提供区域检索服务与团购信息检索服务'
 
             c.command(:search) do |s|
               s.syntax      'search [options]'

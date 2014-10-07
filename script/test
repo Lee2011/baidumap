@@ -1,0 +1,5 @@
+#! /bin/bash
+#
+# Usage:
+#   script/test
+#   script/test <test_file>
