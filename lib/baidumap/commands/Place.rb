@@ -83,62 +83,56 @@ module Baidumap
             add_build_options(c)
 
             c.action do |args, options|
-              Baidumap::Commands::Place.process(options)
+              Baidumap::Commands::Place.processSearch(options)
             end
           end
         end
 
-        # Call the API
-        def process(options)
+        def processSearch(options)
           Baidumap.logger.log_level = :error if options['quiet']
 
-          #options = configuration_from_options(options)
-          setup()
+          require_relative '../uri_helper'
 
-        end
+          uriHelper = Baidumap::UriHelper.new('place_search')
 
-        def processSearch(options)
-          p options
-          p options.class
-          uri = buildURI(options)
-          puts uri
+          uriHelper.getResponse(uriHelper.generate_uri(options))
+
         end
 
         def processDetail(options)
-          p options
+
+          Baidumap.logger.log_level = :error if options['quiet']
+
+          require_relative '../uri_helper'
+
+          uriHelper = Baidumap::UriHelper.new('place_detail')
+
+          uriHelper.getResponse(uriHelper.generate_uri(options))
+
         end
 
         def processEventsearch(options)
-          p options
+
+          Baidumap.logger.log_level = :error if options['quiet']
+
+          require_relative '../uri_helper'
+
+          uriHelper = Baidumap::UriHelper.new('place_eventsearch')
+
+          uriHelper.getResponse(uriHelper.generate_uri(options))
+
         end
 
         def processEventdetail(options)
-          p options
-        end
 
-        def setup()
-          require 'net/http'
+          Baidumap.logger.log_level = :error if options['quiet']
 
-          Net::HTTP.version_1_2   # 设定对象的运作方式
+          require_relative '../uri_helper'
 
-          #uri = URI('http://api.map.baidu.com/place/v2/search?&q=%E5%B0%8F%E5%AD%A6&output=json&scope=2&page_num=0&region=%E6%B5%B7%E5%AE%81&ak=en6DYRcyeGnch8br16wS7FNj')
-          # res = Net::HTTP.get_response(uri)
+          uriHelper = Baidumap::UriHelper.new('place_eventdetail')
 
-          # uri = URI('http://example.com/large_file')
+          uriHelper.getResponse(uriHelper.generate_uri(options))
 
-          uri = URI('http://example.com/index.html')
-          params = { :limit => 10, :page => 3 }
-          uri.query = URI.encode_www_form(params)
-          puts uri
-          puts uri.query
-
-        end
-
-        def buildURI(options)
-          require 'uri'
-          uri = URI('http://api.map.baidu.com/place/v2/search')
-          uri.query = URI.encode_www_form(options)
-          return uri
         end
 
       end # end of class << self

@@ -37,8 +37,8 @@ module Baidumap
         c.option 'AK', '--ak AK', String, '用户密钥, 在lbs云官网注册的access key，作为访问的依据'
         c.option 'SN', '--sn SN', String, '用户的权限签名'
         c.option 'timestamp', '--timestamp TIMESTAMP', '设置sn后该值必填'
+        c.option 'output','-o', '--output OUTPUT', '输出格式为json或者xml'
 
-        c.option 'config',  '--config CONFIG_FILE[,CONFIG_FILE2,...]', Array, 'Custom configuration file'
         c.option 'quiet',   '--quiet', 'Silence output.'
         c.option 'verbose', '--verbose', 'Print verbose output.'
       end

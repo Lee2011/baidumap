@@ -48,18 +48,8 @@ module Baidumap
 
     # Merge DEFAULTS < _config.yml < override
     config = Utils.deep_merge_hashes(config, override).stringify_keys
-    set_timezone(config['timezone']) if config['timezone']
 
     config
-  end
-
-  # Static: Set the TZ environment variable to use the timezone specified
-  #
-  # timezone - the IANA Time Zone
-  #
-  # Returns nothing
-  def self.set_timezone(timezone)
-    ENV['TZ'] = timezone
   end
 
   def self.logger
